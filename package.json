@@ -1,0 +1,34 @@
+{
+  "name": "swachh-client",
+  "version": "0.0.0",
+  "description": "",
+  "main": "vite.config.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "prettier": "prettier --write src",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/runtime-terror-hack/swachh-client.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/runtime-terror-hack/swachh-client.git/issues"
+  },
+  "homepage": "https://github.com/runtime-terror-hack/swachh-client.git#readme",
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@vitejs/plugin-react": "^1.3.0",
+    "prettier": "^2.7.1",
+    "sass": "^1.56.1",
+    "vite": "^2.9.9"
+  }
+}
