@@ -8,6 +8,14 @@ export const login = async (user) => {
     },
     body: JSON.stringify(user),
   })
+  if (res.status == 200) {
+    window.localStorage.setItem('username', username)
+    window.localStorage.setItem('auth', true)
+    console.log(window.localStorage.getItem('auth'))
+  } else {
+    console.log('not ok')
+    window.localStorage.setItem('auth', false)
+  }
   console.log(res)
 }
 
@@ -21,12 +29,14 @@ export const signup = async (user) => {
     },
     body: JSON.stringify(user),
   })
-  if (res.status === 200) {
-    localStorage.setItem('username', username)
-    console.log(localStorage.getItem('username'))
-    return true;
+  console.log(res)
+  if (res.status == 200) {
+    window.localStorage.setItem('username', username)
+    window.localStorage.setItem('auth', true)
+    console.log(window.localStorage.getItem('auth'))
   } else {
     console.log('not ok')
+    window.localStorage.setItem('auth', false)
   }
   console.log(res)
 }

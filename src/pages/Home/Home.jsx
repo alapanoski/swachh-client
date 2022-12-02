@@ -16,6 +16,12 @@ export default function Home() {
     e.preventDefault()
     navigate('/request')
   }
+
+  const navigateToHistory = (e) => {
+    e.preventDefault()
+    navigate('/history/collection')
+  }
+
   return (
     <div className="Home">
       <div className="home-functions">
@@ -31,7 +37,7 @@ export default function Home() {
           <img src={sell} alt="" />
           <p>Sell</p>
         </div>{' '}
-        <div className="function">
+        <div className="function" onClick={navigateToHistory}>
           <img src={history} alt="" />
           <p>History</p>
         </div>{' '}
@@ -44,7 +50,7 @@ export default function Home() {
           <p>Support</p>
         </div>
       </div>
-      <button onClick={handleClick}>New request</button>
+      <button onClick={handleClick} className="new-request-button btn btn-primary">New request</button>
     </div>
   )
 }

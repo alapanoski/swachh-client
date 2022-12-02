@@ -1,13 +1,15 @@
 import { useState } from 'react'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 import './RequestForm.scss'
 
 import { addRequest } from '../../services/requests'
 
 export default function RequestForm() {
+  const navigate = useNavigate()
   const [newRequest, setNewRequest] = useState({
-    username: 'default',
-    typeofwaste: '',
+    username: localStorage.getItem('username'),
+    typeofwaste: 'foodwaste',
   })
 
   const handleChange = (e) => {
@@ -20,7 +22,12 @@ export default function RequestForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setNewRequest((prevState) => ({
+      ...prevState,
+      username: localStorage.getItem('username'),
+    }))
     addRequest(newRequest)
+    navigate('/')
   }
 
   return (
@@ -42,12 +49,8 @@ export default function RequestForm() {
           here.
         </ul>
       </div>
-      <p className='text-white'>Select the type of waste</p>
-      <form onSubmit={handleSubmit} className='new-request-form'>
-        <label>
-          Username:
-          <input type="text" name="username" onChange={handleChange} />
-        </label>
+      <p className="text-white">Select the type of waste</p>
+      <form onSubmit={handleSubmit} className="new-request-form">
         <label>
           Waste Type:
           <select name="typeofwaste" onChange={handleChange}>
@@ -59,7 +62,7 @@ export default function RequestForm() {
             <option value="other">Other</option>
           </select>
         </label>
-        <input type="submit" value="Request" className='btn btn-primary' />
+        <input type="submit" value="Request" className="btn btn-primary" />
       </form>
     </div>
   )

@@ -1,12 +1,15 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 import './Login.scss'
 
 import { login } from '../../services/users'
 
 export default function Login() {
+  const navigate = useNavigate()
+
   const [user, setUser] = useState({
-    username: 'default',
+    username: 'ss',
     password: '',
   })
 
@@ -16,28 +19,39 @@ export default function Login() {
       ...prevState,
       [name]: value,
     }))
-    console.log(user)
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
     login(user)
+
+    navigate('/')
   }
 
   return (
     <form id="login" onSubmit={handleSubmit}>
+      <h1>Login</h1>
       <div>
-        <label htmlFor="username" onChange={handleChange}>
-          Username
-        </label>
-        <input type="text" name="username" placeholder="Username" />
+        <label htmlFor="username">Username</label>
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          onChange={handleChange}
+        />
       </div>
       <div>
-        <label htmlFor="password" onChange={handleChange}>
-          Password
-        </label>
-        <input type="password" name="password" placeholder="Password" />
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          onChange={handleChange}
+        />
       </div>
+      <p>
+        New here? <a href="/signup">Sign Up</a>
+      </p>
       <input type="submit" value="Submit" className="btn btn-primary" />
     </form>
   )

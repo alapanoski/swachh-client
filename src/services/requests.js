@@ -1,11 +1,21 @@
-export const addRequest = async (newRequest) => {
-  const { username, typeOfWaste } = newRequest
-  switch (typeOfWaste) {
+export const addRequest = async (request) => {
+  const { username, typeofwaste } = request
+  let newRequest = {
+    username: request.username,
+    typeofwaste: {
+      ewaste: false,
+      plastic: false,
+      foodwaste: false,
+      other: false,
+    },
+  }
+  console.log(request)
+  switch (typeofwaste) {
     case 'ewaste':
       newRequest.typeofwaste.ewaste = true
       break
-    case 'paper':
-      newRequest.typeofwaste.paper = true
+    case 'plastic':
+      newRequest.typeofwaste.plastic = true
       break
     case 'foodwaste':
       newRequest.typeofwaste.foodwaste = true
@@ -14,7 +24,7 @@ export const addRequest = async (newRequest) => {
       newRequest.typeofwaste.other = true
       break
   }
-  console.log({ newRequest })
+  console.log(newRequest)
   const res = await fetch(
     `${import.meta.env.VITE_API_URL}/request/newrequest`,
     {
@@ -22,8 +32,20 @@ export const addRequest = async (newRequest) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(newRequest),
+      body: JSON.stringify(request),
     }
   )
+  console.log(res)
+}
+
+export const viewRequests = async (username) => {
+  console.log('Fafdsa')
+  const res = await fetch(`${import.meta.env.VITE_API_URL}`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(localStorage.getItem('username')),
+  })
   console.log(res)
 }
