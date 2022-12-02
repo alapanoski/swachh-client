@@ -9,7 +9,6 @@ import Login from './pages/Login/Login'
 import SignUp from './pages/SignUp/SignUp'
 import Subsciptions from './pages/Subscriptions/Subscriptons'
 import CollectionHistory from './pages/CollectionHistory/CollectionHistory'
-import CollectionReport from './pages/CollectionReport/CollectionReport'
 import CollectorLogin from './pages/CollectorLogin/CollectorLogin'
 
 import { useEffect, useState } from 'react'
@@ -30,8 +29,7 @@ export default function App() {
           <Route path="/signup" element={<SignUp />} />
           <Route path="/request" element={<RequestForm />} />
           <Route path="/subscriptions" element={<Subsciptions />} />
-          <Route path="/history/collection" element={<CollectionHistory />} />
-          <Route path="/collectionreport" element={<CollectionReport />} />
+          <Route path="/history" element={<CollectionHistory />} />
           <Route path="/collector/login" element={<CollectorLogin />} />
         </Routes>
       </Router>

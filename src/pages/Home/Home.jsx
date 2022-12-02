@@ -19,7 +19,7 @@ export default function Home() {
 
   const navigateToHistory = (e) => {
     e.preventDefault()
-    navigate('/history/collection')
+    navigate('/history')
   }
 
   return (
