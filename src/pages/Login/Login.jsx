@@ -16,6 +16,7 @@ export default function Login() {
       ...prevState,
       [name]: value,
     }))
+    console.log(user)
   }
 
   const handleSubmit = (e) => {
@@ -26,11 +27,15 @@ export default function Login() {
   return (
     <form id="login" onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="username">Username</label>
+        <label htmlFor="username" onChange={handleChange}>
+          Username
+        </label>
         <input type="text" name="username" placeholder="Username" />
       </div>
       <div>
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password" onChange={handleChange}>
+          Password
+        </label>
         <input type="password" name="password" placeholder="Password" />
       </div>
       <input type="submit" value="Submit" className="btn btn-primary" />

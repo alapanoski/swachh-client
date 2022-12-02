@@ -1,5 +1,12 @@
 import { useNavigate } from 'react-router-dom'
 
+import schedule from './../../assets/schedule.svg'
+import complaint from '../../assets/complaint.svg'
+import sell from '../../assets/sell.svg'
+import history from '../../assets/history.svg'
+import services from '../../assets/services.svg'
+import support from '../../assets/support.svg'
+
 import './Home.scss'
 
 export default function Home() {
@@ -11,8 +18,32 @@ export default function Home() {
   }
   return (
     <div className="Home">
-      <p>Swachh Home</p>
-      <p>Used 3 out of 4 collections for the month</p>
+      <div className="home-functions">
+        <div className="function">
+          <img src={schedule} alt="" />
+          <p>Schedule</p>
+        </div>
+        <div className="function">
+          <img src={complaint} alt="" />
+          <p>Complaint</p>
+        </div>{' '}
+        <div className="function">
+          <img src={sell} alt="" />
+          <p>Sell</p>
+        </div>{' '}
+        <div className="function">
+          <img src={history} alt="" />
+          <p>History</p>
+        </div>{' '}
+        <div className="function">
+          <img src={services} alt="" />
+          <p>Services</p>
+        </div>{' '}
+        <div className="function">
+          <img src={support} alt="" />
+          <p>Support</p>
+        </div>
+      </div>
       <button onClick={handleClick}>New request</button>
     </div>
   )
