@@ -1,5 +1,7 @@
 import { useState } from 'react'
 
+import './Login.scss'
+
 import { login } from '../../services/users'
 
 export default function Login() {
@@ -22,16 +24,16 @@ export default function Login() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Username:
-        <input type="text" name="username" onChange={handleChange} />
-      </label>
-      <label>
-        Password:
-        <input type="password" name="password" onChange={handleChange} />
-      </label>
-      <input type="submit" value="Submit" />
+    <form id="login" onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="username">Username</label>
+        <input type="text" name="username" placeholder="Username" />
+      </div>
+      <div>
+        <label htmlFor="password">Password</label>
+        <input type="password" name="password" placeholder="Password" />
+      </div>
+      <input type="submit" value="Submit" className="btn btn-primary" />
     </form>
   )
 }
