@@ -1,16 +1,13 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { signup } from '../../services/users'
+import { login } from '../../services/users'
 
-import './SignUp.scss'
-
-export default function Register() {
+export default function CollectorLogin() {
   const navigate = useNavigate()
+
   const [user, setUser] = useState({
-    username: 'default',
-    firstName: 'default',
-    lastName: 'default',
+    username: '',
     password: '',
   })
 
@@ -24,32 +21,14 @@ export default function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    signup(user)
-    navigate('/')
-    window.location.reload()
+    login(user)
+
+    navigate('/collector')
   }
 
   return (
-    <form id="signup" onSubmit={handleSubmit}>
-      <h1>Sign Up</h1>
-      <div className="">
-        <label htmlFor="firstName">First Name</label>
-        <input
-          type="text"
-          name="firstName"
-          placeholder="First Name"
-          onChange={handleChange}
-        />
-      </div>
-      <div>
-        <label htmlFor="lastName">Last Name</label>
-        <input
-          type="text"
-          name="lastName"
-          placeholder="Last Name"
-          onChange={handleChange}
-        />
-      </div>
+    <form id="login" onSubmit={handleSubmit}>
+      <h1>Collector Login</h1>
       <div>
         <label htmlFor="username">Username</label>
         <input
@@ -69,7 +48,7 @@ export default function Register() {
         />
       </div>
       <p>
-        Already registerd? <a href="/login">Log In</a>
+        New here? <a href="/signup">Sign Up</a>
       </p>
       <input type="submit" value="Submit" className="btn btn-primary" />
     </form>
