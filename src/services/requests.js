@@ -39,13 +39,11 @@ export const addRequest = async (request) => {
 }
 
 export const viewRequests = async (username) => {
-  console.log('Fafdsa')
-  const res = await fetch(`${import.meta.env.VITE_API_URL}`, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(localStorage.getItem('username')),
+  return fetch(`${import.meta.env.VITE_API_URL}/request/viewallRequests`, {
+    method: 'GET',
+    // headers: {
+    //   'Content-Type': 'application/json',
+    // },
+    // body: JSON.stringify({ username: localStorage.getItem('username') }),
   })
-  console.log(res)
 }
